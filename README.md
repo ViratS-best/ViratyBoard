@@ -57,13 +57,13 @@ Just like that I am **DONE**!
 ## Project Structure
 
 ```text
-├── README.md
-├── devboard.kicad_pcb
-├── devboard.kicad_pro
-├── devboard.kicad_sch
-├── devboard.zip         # Gerber
-├── bom.csv
-└── submit.ino
+README.md
+devboard.kicad_pcb
+devboard.kicad_pro
+devboard.kicad_sch
+devboard.zip    # Gerber
+bom.csv
+submit.ino
 ```
 
 ## BOM:

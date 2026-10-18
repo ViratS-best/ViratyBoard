@@ -17,6 +17,66 @@ This is mainly built using the RP2040 datasheet and this guide: https://github.c
 
   <img width="693" height="562" alt="Screenshot 2026-10-05 174123" src="https://github.com/user-attachments/assets/3a03f2a9-fae2-4a43-b277-6be4fff3c73c" />
 
+# How I built it:
+
+I started by looking over the build-a-devboard GitHub repository, and I followed the guide as well.
+
+Next, I looked over the datasheet for the RP2040, hopefully to find the same image the GitHub repository referenced that showed the result.
+
+So I started developing the board.
+
+First, I set up the decoupling capacitors:
+
+<img width="945" height="286" alt="image" src="https://github.com/user-attachments/assets/d5fd77d7-dc20-4e9e-bd72-a36c1be8eae6" />
+
+Then I continued by labling the whole RP2040:
+
+<img width="455" height="515" alt="image" src="https://github.com/user-attachments/assets/24f9b3f3-ebad-4c4f-9e77-70104d53821d" />
+
+I also added the USB power source and programmer:
+
+<img width="700" height="565" alt="image" src="https://github.com/user-attachments/assets/37d61425-d4bc-41e8-9ddd-32409ec04fc9" />
+
+Then I added the crystal oscillator to make the RP2040 actually work:
+
+<img width="378" height="183" alt="image" src="https://github.com/user-attachments/assets/83432de9-675b-46cf-8377-cff80ea41ac7" />
+
+As well as the flash storage:
+
+<img width="339" height="321" alt="image" src="https://github.com/user-attachments/assets/ec560121-574f-4cac-81fd-32d5b904c1c4" />
+
+And lastly made the pin headers:
+
+<img width="267" height="344" alt="image" src="https://github.com/user-attachments/assets/e7efc268-3629-4f75-b580-8d2703aa5770" />
+
+OH NO!!!
+
+I kept the wrong voltage regulator!!
+
+Thankfully it was an easy fix:
+
+<img width="232" height="227" alt="image" src="https://github.com/user-attachments/assets/5fa59f21-7e0b-44d2-873a-8b2501371b8c" />
+
+But then I thought I should also add something original, like battery power instead of USB... so I added that:
+
+<img width="693" height="562" alt="image" src="https://github.com/user-attachments/assets/2ebb0950-f6ec-42dc-9427-258332b1eefe" />
+
+So... now it accepts both BATTERY AND USB!!!
+
+Plug in BOTH: The USB power instantly turns the MOSFET OFF, completely disconnecting the AA batteries so they don't get accidentally charged or drained!
+
+Next I attached all the footprints:
+
+<img width="621" height="432" alt="image" src="https://github.com/user-attachments/assets/8082cfba-0bf5-45fd-aa0f-cbb061117e18" />
+
+and looked at my final schematic:
+
+<img width="935" height="573" alt="image" src="https://github.com/user-attachments/assets/ee460f0b-4421-401d-ad6c-a3141bbf3446" />
+
+Only routing and PCB design left!
+
+Now this is where it got hard...
+
 ## Where did I get stuck at?
 
 This devboard is 4 layers... It's not 2, because, due to the battery mechanism, routing it in 2 layers became really hard and complicated, so I had to switch to 4 layers. This could be done in 2 layers, but I just couldn't manage to, and I was really confused about how to do it, so I was stuck with this. **I asked about routing on Reddit**:
